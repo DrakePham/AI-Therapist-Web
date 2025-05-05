@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { api } from "@/convex/_generated/api";
-import { useUser } from "@clerk/clerk-react";
+// import { useUser } from "@auth0/nextjs-auth0/client;";
 import { useAction, useQuery } from "convex/react";
 import {
   CreditCard,

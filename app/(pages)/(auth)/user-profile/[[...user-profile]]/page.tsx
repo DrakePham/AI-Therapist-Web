@@ -1,6 +1,6 @@
 "use client"
 import PageWrapper from "@/components/wrapper/page-wrapper";
-import { UserProfile } from "@clerk/nextjs";
+import { UserProfile } from "../../../../../components/user-profile";
 
 const UserProfilePage = () => {
     return (

@@ -4,13 +4,13 @@ import MarketingCards from "@/components/homepage/marketing-cards";
 import Pricing from "@/components/homepage/pricing";
 import SideBySide from "@/components/homepage/side-by-side";
 import PageWrapper from "@/components/wrapper/page-wrapper";
-import { polar } from "@/lib/polar";
+// import { polar } from "@/lib/polar";
 
 export default async function Home() {
 
-  const data = await polar.products.list({
-    organizationId: process.env.POLAR_ORGANIZATION_ID,
-  });
+  // const data = await polar.products.list({
+  //   organizationId: process.env.POLAR_ORGANIZATION_ID,
+  // });
 
 
   return (
@@ -20,7 +20,7 @@ export default async function Home() {
       </div>
       <SideBySide />
       <MarketingCards />
-      <Pricing result={data?.result as any} />
+      {/* <Pricing result={data?.result as any} /> */}
       <AccordionComponent />
     </PageWrapper>
   );

@@ -8,7 +8,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import { useAuth } from "@clerk/nextjs";
+import { useUser } from "@auth0/nextjs-auth0/client";
 import { Dialog } from "@radix-ui/react-dialog";
 import { motion } from "framer-motion";
 import { Github, Menu, Sparkles, Twitter, Youtube } from "lucide-react";
@@ -43,7 +43,7 @@ const components: { title: string; href: string; description: string }[] = [
 ];
 
 export default function NavBar() {
-  const { userId } = useAuth();
+  const { user } = useUser();
 
   return (
     <motion.div
@@ -129,9 +129,9 @@ export default function NavBar() {
                   </Link>
                 </div>
 
-                {!userId && (
+                {!user && (
                   <div className="px-2 py-4 border-t mt-auto">
-                    <Link href="/sign-in" prefetch={true}>
+                    <Link href="/api/auth/login" prefetch={true}>
                       <Button className="w-full bg-blue-600 hover:bg-blue-500">
                         Sign in
                       </Button>
@@ -197,8 +197,8 @@ export default function NavBar() {
         {/* Right Side */}
         <div className="flex items-center gap-2">
           <ModeToggle />
-          {!userId && (
-            <Link href="/sign-in" prefetch={true}>
+          {!user && (
+            <Link href="/api/auth/login" prefetch={true}>
               <Button
                 variant="default"
                 className="bg-blue-600 hover:bg-blue-500 text-white"
@@ -207,7 +207,7 @@ export default function NavBar() {
               </Button>
             </Link>
           )}
-          {userId && <UserProfile />}
+          {user && <UserProfile />}
         </div>
       </div>
     </motion.div>

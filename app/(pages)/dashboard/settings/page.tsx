@@ -1,15 +1,27 @@
-"use client"
+"use client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Separator } from "@/components/ui/separator";
 import { Switch } from "@/components/ui/switch";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Textarea } from "@/components/ui/textarea";
-import { useUser } from '@clerk/nextjs';
+import { useUser } from "@auth0/nextjs-auth0/client";
 import { Bell, Globe, Lock, Mail, Moon, Palette, Shield } from "lucide-react";
 
 export default function SettingsPage() {
@@ -20,7 +32,9 @@ export default function SettingsPage() {
       {/* Header */}
       <div>
         <h1 className="text-3xl font-semibold tracking-tight">Settings</h1>
-        <p className="text-muted-foreground mt-2">Manage your account settings and preferences</p>
+        <p className="text-muted-foreground mt-2">
+          Manage your account settings and preferences
+        </p>
       </div>
 
       <Tabs defaultValue="account" className="space-y-6">
@@ -37,7 +51,9 @@ export default function SettingsPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Profile</CardTitle>
-                <CardDescription>Update your personal information</CardDescription>
+                <CardDescription>
+                  Update your personal information
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center gap-6">
@@ -51,15 +67,27 @@ export default function SettingsPage() {
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
                     <Label htmlFor="name">Name</Label>
-                    <Input id="name" placeholder="Your name" defaultValue={user?.user?.firstName ? user?.user?.firstName : ""} />
+                    <Input
+                      id="name"
+                      placeholder="Your name"
+                      defaultValue={user?.user?.firstName || ""}
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="Your email" defaultValue={user?.user?.emailAddresses?.[0]?.emailAddress!} />
+                    <Input
+                      id="name"
+                      placeholder="Your name"
+                      defaultValue={user?.user?.firstName || ""}
+                    />
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="username">Username</Label>
-                    <Input id="username" placeholder="Username" defaultValue={user?.user?.username!} />
+                    <Input
+                      id="username"
+                      placeholder="Username"
+                      defaultValue={user?.user?.username || ""}
+                    />
                   </div>
                 </div>
                 <div className="space-y-2">
@@ -74,13 +102,17 @@ export default function SettingsPage() {
             <Card>
               <CardHeader>
                 <CardTitle>Preferences</CardTitle>
-                <CardDescription>Manage your account preferences</CardDescription>
+                <CardDescription>
+                  Manage your account preferences
+                </CardDescription>
               </CardHeader>
               <CardContent className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
                     <Label>Language</Label>
-                    <p className="text-sm text-muted-foreground">Select your preferred language</p>
+                    <p className="text-sm text-muted-foreground">
+                      Select your preferred language
+                    </p>
                   </div>
                   <Select defaultValue="en">
                     <SelectTrigger className="w-[180px]">
@@ -98,7 +130,9 @@ export default function SettingsPage() {
                 <div className="flex items-center justify-between">
                   <div className="space-y-0.5">
                     <Label>Timezone</Label>
-                    <p className="text-sm text-muted-foreground">Set your local timezone</p>
+                    <p className="text-sm text-muted-foreground">
+                      Set your local timezone
+                    </p>
                   </div>
                   <Select defaultValue="est">
                     <SelectTrigger className="w-[180px]">
@@ -121,7 +155,9 @@ export default function SettingsPage() {
           <Card>
             <CardHeader>
               <CardTitle>Notifications</CardTitle>
-              <CardDescription>Manage your notification preferences</CardDescription>
+              <CardDescription>
+                Manage your notification preferences
+              </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-4">
@@ -130,7 +166,9 @@ export default function SettingsPage() {
                     <Bell className="h-5 w-5 text-muted-foreground" />
                     <div>
                       <Label>Push Notifications</Label>
-                      <p className="text-sm text-muted-foreground">Receive push notifications</p>
+                      <p className="text-sm text-muted-foreground">
+                        Receive push notifications
+                      </p>
                     </div>
                   </div>
                   <Switch />
@@ -141,7 +179,9 @@ export default function SettingsPage() {
                     <Mail className="h-5 w-5 text-muted-foreground" />
                     <div>
                       <Label>Email Notifications</Label>
-                      <p className="text-sm text-muted-foreground">Receive email updates</p>
+                      <p className="text-sm text-muted-foreground">
+                        Receive email updates
+                      </p>
                     </div>
                   </div>
                   <Switch defaultChecked />
@@ -152,7 +192,9 @@ export default function SettingsPage() {
                     <Globe className="h-5 w-5 text-muted-foreground" />
                     <div>
                       <Label>Marketing Emails</Label>
-                      <p className="text-sm text-muted-foreground">Receive marketing emails</p>
+                      <p className="text-sm text-muted-foreground">
+                        Receive marketing emails
+                      </p>
                     </div>
                   </div>
                   <Switch />
@@ -175,7 +217,9 @@ export default function SettingsPage() {
                     <Moon className="h-5 w-5 text-muted-foreground" />
                     <div>
                       <Label>Dark Mode</Label>
-                      <p className="text-sm text-muted-foreground">Toggle dark mode</p>
+                      <p className="text-sm text-muted-foreground">
+                        Toggle dark mode
+                      </p>
                     </div>
                   </div>
                   <Switch defaultChecked />
@@ -186,7 +230,9 @@ export default function SettingsPage() {
                     <Palette className="h-5 w-5 text-muted-foreground" />
                     <div>
                       <Label>Theme Color</Label>
-                      <p className="text-sm text-muted-foreground">Choose your theme color</p>
+                      <p className="text-sm text-muted-foreground">
+                        Choose your theme color
+                      </p>
                     </div>
                   </div>
                   <Select defaultValue="blue">
@@ -220,7 +266,9 @@ export default function SettingsPage() {
                       <Lock className="h-5 w-5 text-muted-foreground" />
                       <div>
                         <Label>Two-Factor Authentication</Label>
-                        <p className="text-sm text-muted-foreground">Add an extra layer of security</p>
+                        <p className="text-sm text-muted-foreground">
+                          Add an extra layer of security
+                        </p>
                       </div>
                     </div>
                     <Button variant="outline">Enable</Button>
@@ -231,7 +279,9 @@ export default function SettingsPage() {
                       <Shield className="h-5 w-5 text-muted-foreground" />
                       <div>
                         <Label>Password</Label>
-                        <p className="text-sm text-muted-foreground">Change your password</p>
+                        <p className="text-sm text-muted-foreground">
+                          Change your password
+                        </p>
                       </div>
                     </div>
                     <Button variant="outline">Update</Button>
@@ -250,17 +300,25 @@ export default function SettingsPage() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium">Current Session</p>
-                      <p className="text-sm text-muted-foreground">Last active: Just now</p>
+                      <p className="text-sm text-muted-foreground">
+                        Last active: Just now
+                      </p>
                     </div>
-                    <Button variant="outline" className="text-destructive">Sign Out</Button>
+                    <Button variant="outline" className="text-destructive">
+                      Sign Out
+                    </Button>
                   </div>
                   <Separator />
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="font-medium">Other Sessions</p>
-                      <p className="text-sm text-muted-foreground">2 active sessions</p>
+                      <p className="text-sm text-muted-foreground">
+                        2 active sessions
+                      </p>
                     </div>
-                    <Button variant="outline" className="text-destructive">Sign Out All</Button>
+                    <Button variant="outline" className="text-destructive">
+                      Sign Out All
+                    </Button>
                   </div>
                 </div>
               </CardContent>
