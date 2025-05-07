@@ -36,12 +36,12 @@ To set up your Convex database, visit: [https://convex.link/rasmicstarter](https
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/michaelshimeles/nextjs14-starter-template.git
+git clone https://github.com/DrakePham/AI-Therapist-Web.git
 ```
 
 2. Install dependencies:
 ```bash
-bun install
+npm install
 ```
 
 3. Set up environment variables:
