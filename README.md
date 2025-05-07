@@ -81,7 +81,7 @@ OPENAI_API_KEY=
 
 5. Run the development server:
 ```bash
-bun run dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) to see your application.
@@ -110,11 +110,11 @@ Open [http://localhost:3000](http://localhost:3000) to see your application.
 
 ## Available Scripts
 
-- `bun run dev` - Start development server
-- `bun run build` - Build for production
-- `bun run start` - Start production server
-- `bun run lint` - Run ESLint
-- `bun run format` - Format code with Prettier
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
 
 ## Sponsors and Supporters
 
