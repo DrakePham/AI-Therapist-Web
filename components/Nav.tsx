@@ -3,6 +3,7 @@
 import { useLayoutEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { Moon, Sun } from "lucide-react";
+import Link from "next/link";
 
 export const Nav = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -31,6 +32,9 @@ export const Nav = () => {
     >
       <div>HGTInf</div>
       <div className={"ml-auto flex items-center gap-1"}>
+        <Link href="/pricing">
+          <Button variant="outline">Pricing</Button>
+        </Link>
         <Button
           onClick={toggleDark}
           variant={"ghost"}
